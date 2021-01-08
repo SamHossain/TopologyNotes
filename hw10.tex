@@ -1,0 +1,31 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{amsmath, amssymb, enumitem}
+\begin{document}
+
+\title{Homework 10 Math 551}
+\author{Sam Hossain}
+
+\maketitle
+\section*{3}
+
+\begin{enumerate}[label=(\alph*)]
+	\item Let$\mathbf{X}$ be the space $\mathbb{N} \times \{0, 1\}$ with discrete and indiscrete top. Let $f:\mathbf{X} \longrightarrow \mathbf{Y}$ be the projection onto the first coordinate. $\mathbf{X}$ is limit point compact as $A \subset \mathbf{X} as (n, i) \in{\mathbf{X}}$ has a limit point of (n, i+1 mod 1). $f(\mathbf{X})$ is an infinite discrete space.
+
+	\item let $A \subset \mathbf{X}$ be closed, then by assumption any infinite $B \subseteq A$ has a limit point in $\mathbb{X}$. This limit point is also in $A$ as it contains its limit points.
+	\item This is not true since the implication is that limit point compact implies compact. An example comes from the book: $S_\Omega$ is a limit point compact subspace of Hausdorff sp$\overline{S_\Omega}$, but $S_\Omega$ is't closed $\overline{S_\Omega}$, because 
+$\Omega$ is a limit point of $S_\Omega$ but is not a point of $S_\Omega$.
+\end{enumerate}
+
+\section*{6}
+	Let $f$ be an isometry on the compact space $\mathbf{X}$. It suffices to show that $f$ is surjective. For a contradiction, assume $f(\mathbf{X}) \subset \mathbf{X}$. As $\mathbf{X}$ is compact, so is its mapping under $f$. Choose $ a \in \mathbf{X}$ that is not in $f(\mathbf{X})$. Let $U_a$ be a neighborhood about $a$ s.t. $U_a$ is disjoint from $f(\mathbf{X})$. From the hint define a sequence $x_1 = a$ and $x_{n+1} = f(x_n)$. Then for any $m,n$\newline $d \left( x_m, x_n \right) = d \big( f\left(x_{m-1}\right), f\left( x_{n-1} \right) \big) 
+= \ldots =  d \left( x_{m-n+1}, x_1 \right) = d \big( f\left( x_{m-n} \right), a \big) \geq \varepsilon$ If $x_n$ is any increasing sequence, then it is not cauchy and is not convergent. This contradicts as $\mathbf{X}$ is compact and thus sequentially compact. So $f$ is bijective and, since $X$ is compact, also a homeomorphism.
+
+\section*{1}
+It suffices to show that $\mathbb{Q}$ is not compact in $\mathbb{R}$ as we can take any subset of $\mathbb{Q}$ on the interval [a,b] which will not be closed in $\mathbb{R}$ and therefore not compact.
+
+\section*{6}
+First, note that $\mathbb{R}$ is homeomorphic to any open interval under the the inverse tangent map. Let $\mathbf{X}$ = (0,1). From class we know that this is homeomorphic to $S^1 - \{(0,1)\}$. $S^1 - \{(0,1)\}$ is a subspace of $S^1$ and $S^1 - S^1 - \{(0,1)\}$ consists of the single point. $S^1$ is compact and hence $S^1 - \{(0,1)\}$ is the one point compactificaton of $S^1$ that is homeomorphic to $\mathbb{R}$.
+\section*{8}
+Let $\mathbf{X} = \{\frac{1}{n} | n \in \mathbb{Z_+}$ and $\mathbf{Y} = \mathbf{X} \bigcup \{0\}$. $\mathbb{Z_+}$ is homeomorphic to $\mathbf{X}$ $(n \mapsto \frac{1}{n})$ and $\mathbf{X} \subset \mathbf{Y}$ with $\mathbf{X} - \mathbf{Y}$ equal to a single point. By heine-borel, $\mathbf{Y}$ is compact and thus the one point compactificaton of $\mathbb{Z_+}$ is homeomorphic to$\mathbf{Y}$. 
+
+\end{document}

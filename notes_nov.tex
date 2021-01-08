@@ -1,0 +1,73 @@
+\documentclass[a4paper, 12pt]{article}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\XX}{\mathbf{X}}
+\newcommand{\YY}{\mathbf{Y}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\CC}{\mathbf{C}}
+\usepackage{amsmath,inputenc, amsthm, amssymb, enumitem}
+
+\newtheorem{theorm}{Theorem}
+\begin{document}
+
+\title{November Notes}
+\author{Sam Hossain}
+
+\section{Heine-Borel}
+\maketitle
+\begin{theorm}
+Every compact subspace of a hausdorff space is closed.
+\end{theorm}
+\begin{proof}
+We will use $A^+$ to prove this. Let $\YY \in \XX$ be a compact subspace. Now, we need to show that $\XX \setminus \YY$ is open. Let $x \in \XX \setminus \YY$. Assuming $A^+$, $U_x \in \XX \setminus \YY$ where $U_x$ is open and $U_x \cap V = \emptyset$. Since $\YY \subseteq V$, $U_x$ doesn't intersect $\YY$, as desired. So, $\YY$ is closed.
+\end{proof}
+
+\begin{theorm}[$A^+$]
+Assume taht $\XX$ is a hausdorff space and that $\YY \subset \XX$ is a compact subset. Then $\forall x \in \YY \setminus \XX \exists$ open sets, $U, V \subset \XX$ such that $x \in U$ and $\YY \in V$. [Note that V is dependent on x]
+\end{theorm}
+\begin{proof}
+Lets choose $y_i \in \YY$. Since $\XX$ is a hausdorff space, $\exists U_{x_i}$ containing x and $U_{y_i}$ containing $y_i$ such that $U_{x_i} \cap U_{y_i} = \emptyset$. Clearly, $\YY \in \bigcup\limits_{y_i \in \YY} U_{y_i}$. Since $\YY$ is compact, we can reduce this union to, $\YY \subset \bigcup\limits_{i \in J_0} U_{y_i} = V$ where i's belong to some index set, $J_0 = {j_1, \dots ,j_N}$. Now we have our V. Take $U = \bigcap\limits_{i \in J_0} U_{x_i}$. This is the finite intersection of open sets, and thus is open and $x \in U U \cap V = \emptyset$ by construction.
+\end{proof}
+
+\begin{theorm}[B]
+Let $f: \XX \rightarrow \YY$ be a continous function and let $\XX$ be compact. Then $f(\XX)$ is also compact.
+\end{theorm}
+\begin{proof}
+Let ${U_i}_{i \in J}$ be a collection of open sets in $\YY$ that cover $f(\XX)$. This implies that ${f^{-1}(U_i)}_{i \in J}$ covers $\XX$. By compactness of $\XX$ and the continuity of $f$ (ensures all of the sets in the preimage were open) we know that $\exists J_0 = {j_i, \dots , j_N}$ such that ${f^{-1}(U_i)}_{i \in J_0}$ is a finite open cover of $\XX$. THis implies that ${U_i}_{i \in J_0}$ is a finite open set that covers $f(\XX)$, thus it is compact.
+\end{proof} 
+
+\begin{theorm}[C]
+Let $f: \XX \rightarrow \YY$ be a bijective contunous map. If $\XX$ is compact and $\YY$ is a hausdorff space, then $f$ is a homeomorphism.
+\end{theorm}
+\begin{proof}
+We need to show that $f^{-1}$ is a continous map. Let $U \in \XX$ be open now we need that $(f^{-1})^{-1}(U)$ is open. Notice that $(f^{-1})^{-1}(U) = f(U)$. Instead of using the definition of continuouity in terms of open sets, we will use the equivalent definiton that uses closed sets to show $f$ continious. So, for Z closed in $\XX$ we have that Z is compact by Thm. 3. By continouity of $f$, we have that $f(Z)$ is compact by Thm. B. Since $\YY$ is hausdorff, and $f(Z)$ is compact, $f(Z)$ is closed by Thm. A, as desired.
+\end{proof}
+
+\begin{theorm}[Tube Lemma]
+Let $\YY$ bbe compact and let $\XX$ be a topological space. If U is open in $\XX \times \YY$ and contains the set ${x_0} \times \YY$, then $\exists V_{x_0} \subset \XX$ such that $V_{x_0} \times \YY \subset U$. 
+\end{theorm}
+
+
+
+\begin{theorm}
+The interval $[0, 1]$ is compact.
+\end{theorm}
+\begin{proof}
+        Let $\bigcup U_{\alpha}$ be an open cover for the interval [0 ,1]. Now, by completeness of $\RR$, we know that there is some set $B = {x | [0, x] \in I}$ where $I$ is the set of finite unions of $U_{\alpha_i}$. That is, for any $x \in B$, there is a finite subcover from $U_{\alpha}$. Now, since B is bounded by 1, we know B has a supremum, $s = sup(B)$.\newline First, lets show that $[0, s]$ is compact. We know there exists some $U_s \in \bigcup U_{\alpha}$ that contains s. It is open so it will also containsome small interval around s, that is, $(s-\epsilon, s+\epsilon) \in U_s$. By assumption, we know that $[0, s-\frac{\epsilon}{2}$ is compact, so adding $U_s$ to that set makes [0, s] compact.\newline Finally, we show that the supremum is 1. For a contradiction, suppose that it is less than 1. Again, let $s \in U_s$ be an open set from our cover containing s. Now, by the same cover as before, we see that $[0, s + \frac{\epsilon}{2}]$ is compact, contradicting with the assumption that s is the supremum of the set B. Hence, s=1 and [0,1] is compact.
+\end{proof}
+
+\begin{theorm}
+        If $\XX$ is a ordered set having the least upper bound preperty then every closed interval is compact.
+\end{theorm}
+
+\begin{theorm}
+        $A \subset \RR^n$ is compact if and only if A is closed and bounded.
+\end{theorm}
+\begin{proof}~
+        \begin{enumerate}
+                \item[$\Rightarrow$] Here, we use the fact that $\RR^n$ is a hausdorff space and apply Thm. A to get that A is closed. To show boundedness, lets choose an open cover of A: $\bigcup\limits_{N=1}{\infty} [-N,N]^n \cap A$. Now, by compactness of A, we can take finitely many of these open sets and A is clearly bounded by the largest of these.
+                \item[$\Leftarrow$] If we assume the converse, we know that $A \subseteq [-N, N]^n$ that is closed. $[-N, N] \cong [0,1]$ thus it is compact by THEORMS ABOVE and now $[-N. N]^n$ is compact by induction on theorm THEORMS. Now, A is a closed subset of a compact space and thus is compact.
+        \end{enumerate}
+\end{proof}
+    
+\end{document}
